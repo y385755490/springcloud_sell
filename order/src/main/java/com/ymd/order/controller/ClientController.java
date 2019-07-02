@@ -2,6 +2,7 @@ package com.ymd.order.controller;
 
 import com.ymd.order.client.ProductClient;
 import com.ymd.order.dataobject.ProductInfo;
+import com.ymd.order.dto.CartDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
@@ -49,6 +50,15 @@ public class ClientController {
         List<ProductInfo> productInfos = this.productClient.listForOrder(
                 Arrays.asList("157875196366160022", "157875227953464068"));
         System.out.println("response=" + productInfos);
+        return "ok";
+    }
+
+    @GetMapping("/product/decreaseStock")
+    public String decreaseStock(){
+        CartDTO cartDTO = new CartDTO();
+        cartDTO.setProductId("157875196366160022");
+        cartDTO.setProducQuantity(2);
+        this.productClient.decreaseStock(Arrays.asList(cartDTO));
         return "ok";
     }
 }

@@ -1,6 +1,7 @@
 package com.ymd.product.service;
 
 import com.ymd.product.dataObject.ProductInfo;
+import com.ymd.product.dto.CartDTO;
 
 import java.util.List;
 
@@ -16,4 +17,10 @@ public interface ProductService {
      * @return
      */
     List<ProductInfo> findList(List<String> productIdList);
+
+    /**
+     * 扣库存
+     * @param cartDTOList
+     */
+    void decreaseStock(List<CartDTO> cartDTOList);
 }

@@ -2,6 +2,7 @@ package com.ymd.product.controller;
 
 import com.ymd.product.dataObject.ProductCategory;
 import com.ymd.product.dataObject.ProductInfo;
+import com.ymd.product.dto.CartDTO;
 import com.ymd.product.enums.ResultEnum;
 import com.ymd.product.service.CategoryService;
 import com.ymd.product.service.ProductService;
@@ -71,4 +72,10 @@ public class ProductController {
     public List<ProductInfo> listForOrder(@RequestBody List<String> productIdList){
         return this.productService.findList(productIdList);
     }
+
+    @PostMapping("/decreaseStock")
+    public void decreaseStock(@RequestBody List<CartDTO> cartDTOList){
+        productService.decreaseStock(cartDTOList);
+    }
+
 }
