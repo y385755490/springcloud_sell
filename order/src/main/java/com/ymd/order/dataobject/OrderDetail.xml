@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+        version="2.0">
+
+    <entity class="com.ymd.order.dataobject.OrderDetail">
+        <table name="order_detail" schema="SpringCloud_Sell" catalog=""/>
+        <attributes>
+            <id name="detailId">
+                <column name="detail_id" length="32"/>
+            </id>
+            <basic name="orderId">
+                <column name="order_id" length="32"/>
+            </basic>
+            <basic name="productId">
+                <column name="product_id" length="32"/>
+            </basic>
+            <basic name="productName">
+                <column name="product_name" length="64"/>
+            </basic>
+            <basic name="productPrice">
+                <column name="product_price" precision="2"/>
+            </basic>
+            <basic name="productQuantity">
+                <column name="product_quantity" precision="2"/>
+            </basic>
+            <basic name="productIcon">
+                <column name="product_icon" length="512"/>
+            </basic>
+            <basic name="createTime">
+                <column name="create_time" precision="-1"/>
+            </basic>
+            <basic name="updateTime">
+                <column name="update_time" precision="-1"/>
+            </basic>
+        </attributes>
+    </entity>
+</entity-mappings>
