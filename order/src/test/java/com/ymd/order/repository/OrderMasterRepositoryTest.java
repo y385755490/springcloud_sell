@@ -8,6 +8,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
@@ -17,6 +18,9 @@ import java.math.BigDecimal;
 public class OrderMasterRepositoryTest extends OrderApplicationTests{
     @Autowired
     OrderMasterRepository orderMasterRepository;
+
+    @Value("${random.uuid}")
+    private String randomString;
 
     @Test
     public void testSave(){
@@ -31,5 +35,10 @@ public class OrderMasterRepositoryTest extends OrderApplicationTests{
         orderMaster.setPayStatus(PayStatusEnum.WAIT.getCode());
         OrderMaster result = orderMasterRepository.save(orderMaster);
         Assert.assertTrue(result != null);
+    }
+
+    @Test
+    public void random(){
+        System.out.println(randomString);
     }
 }

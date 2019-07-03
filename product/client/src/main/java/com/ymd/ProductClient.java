@@ -1,7 +1,7 @@
-package com.ymd.order.client;
+package com.ymd;
 
-import com.ymd.order.dataobject.ProductInfo;
-import com.ymd.order.dto.CartDTO;
+import com.ymd.common.DecreaseStockInput;
+import com.ymd.common.ProductInfoOutput;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,9 +15,9 @@ public interface ProductClient {
     String productMsg();
 
     @PostMapping("/product/listForOrder")
-    List<ProductInfo> listForOrder(@RequestBody List<String> productIdList);
+    List<ProductInfoOutput> listForOrder(@RequestBody List<String> productIdList);
 
     @PostMapping("/product/decreaseStock")
-    void decreaseStock(@RequestBody List<CartDTO> cartDTOList);
+    void decreaseStock(@RequestBody List<DecreaseStockInput> cartDTOList);
 
 }

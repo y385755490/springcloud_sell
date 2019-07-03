@@ -20,7 +20,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/order")
 public class OrderController {
     @Autowired
     private OrderService orderService;
@@ -32,7 +32,7 @@ public class OrderController {
      * 4.扣库存（调用商品服务）
      * 5.扣库存
      */
-    @PostMapping
+    @PostMapping("/create")
     public ResultVO<Map<String,String>> create(@Valid OrderForm orderForm, BindingResult bindingResult){
         if (bindingResult.hasErrors()){
             System.out.println("【创建订单】参数不正确，orderForm=" + orderForm);
