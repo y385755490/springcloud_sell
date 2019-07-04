@@ -17,6 +17,8 @@
     <properties>
         <java.version>1.8</java.version>
         <spring-cloud.version>Hoxton.BUILD-SNAPSHOT</spring-cloud.version>
+        <product-client.version>0.0.1-SNAPSHOT</product-client.version>
+        <product-common.version>0.0.1-SNAPSHOT</product-common.version>
     </properties>
 
     <dependencies>
@@ -61,6 +63,18 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.ymd</groupId>
+            <artifactId>client</artifactId>
+            <version>${product-client.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.ymd</groupId>
+            <artifactId>common</artifactId>
+            <version>${product-common.version}</version>
         </dependency>
     </dependencies>
 

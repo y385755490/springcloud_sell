@@ -1,6 +1,8 @@
 package com.ymd.order.service.impl;
 
-import com.ymd.order.client.ProductClient;
+import com.ymd.client.ProductClient;
+import com.ymd.common.DecreaseStockInput;
+import com.ymd.common.ProductInfoOutput;
 import com.ymd.order.dataobject.OrderDetail;
 import com.ymd.order.dataobject.OrderMaster;
 import com.ymd.order.dataobject.ProductInfo;
@@ -39,12 +41,12 @@ public class OrderServiceImpl implements OrderService {
         //查询商品信息（调用商品服务）
         List<String> productIdlist = orderDTO.getOrderDetailList().stream().map(OrderDetail::getProductId).
                 collect(Collectors.toList());
-        List<ProductInfo> productInfos = productClient.listForOrder(productIdlist);
+        List<ProductInfoOutput> productInfoOutputs = productClient.listForOrder(productIdlist);
 
         //计算总价
         BigDecimal orderAmount = new BigDecimal(BigInteger.ZERO);
         for (OrderDetail orderDetail : orderDTO.getOrderDetailList()){
-            for (ProductInfo productInfo : productInfos){
+            for (ProductInfoOutput productInfo : productInfoOutputs){
                 if (StringUtils.equals(productInfo.getProductId(),orderDetail.getProductId())){
                     //单价*数量
                     orderAmount = productInfo.getProductPrice().multiply(orderDetail.getProductQuantity()).
@@ -59,9 +61,9 @@ public class OrderServiceImpl implements OrderService {
         }
 
         //扣库存（调用商品服务）
-        List<CartDTO> cartDTOS = new ArrayList<>();
+        List<DecreaseStockInput> cartDTOS = new ArrayList<>();
         for (OrderDetail orderDetail : orderDTO.getOrderDetailList()){
-            CartDTO cartDTO = new CartDTO();
+            DecreaseStockInput cartDTO = new DecreaseStockInput();
             cartDTO.setProductId(orderDetail.getProductId());
             cartDTO.setProducQuantity(orderDetail.getProductQuantity().intValue());
             cartDTOS.add(cartDTO);
