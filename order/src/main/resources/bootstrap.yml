@@ -1,0 +1,20 @@
+euraka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/euraka/
+spring:
+  application:
+    name: order
+  cloud:
+    config:
+      label: master
+      discovery:
+        enabled: true
+        service-id: CONFIG
+      profile: dev
+    stream:
+      bindings:
+        myMessage:
+          group: order
+
+

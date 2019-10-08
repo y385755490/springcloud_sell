@@ -15,7 +15,7 @@ import java.math.BigDecimal;
 
 
 @Component
-public class OrderMasterRepositoryTest extends OrderApplicationTests{
+public class OrderMasterRepositoryTest extends OrderApplicationTests {
     @Autowired
     OrderMasterRepository orderMasterRepository;
 
@@ -23,7 +23,7 @@ public class OrderMasterRepositoryTest extends OrderApplicationTests{
     private String randomString;
 
     @Test
-    public void testSave(){
+    public void testSave() {
         OrderMaster orderMaster = new OrderMaster();
         orderMaster.setOrderId("1234567");
         orderMaster.setBuyerName("师兄");
@@ -38,7 +38,7 @@ public class OrderMasterRepositoryTest extends OrderApplicationTests{
     }
 
     @Test
-    public void random(){
+    public void random() {
         System.out.println(randomString);
     }
 }

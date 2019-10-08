@@ -1,6 +1,5 @@
 package com.ymd.order.controller;
 
-import com.ymd.order.dataobject.ProductInfo;
 import com.ymd.order.dto.CartDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;

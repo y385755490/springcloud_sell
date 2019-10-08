@@ -15,7 +15,7 @@ public class OrderDetailRepositoryTest extends OrderApplicationTests {
     private OrderDetailRepository orderDetailRepository;
 
     @Test
-    public void testSave(){
+    public void testSave() {
         OrderDetail orderDetail = new OrderDetail();
         orderDetail.setDetailId("1234567");
         orderDetail.setOrderId("123456");

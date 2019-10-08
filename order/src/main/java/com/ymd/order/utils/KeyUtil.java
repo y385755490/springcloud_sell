@@ -7,7 +7,7 @@ public class KeyUtil {
      * 生成唯一的主键
      * 格式：UUID
      */
-    public static String uuid(){
-        return UUID.randomUUID().toString().replaceAll("-","");
+    public static String uuid() {
+        return UUID.randomUUID().toString().replaceAll("-", "");
     }
 }

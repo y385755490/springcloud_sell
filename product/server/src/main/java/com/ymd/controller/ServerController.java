@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping
 public class ServerController {
     @RequestMapping("/msg")
-    public String msg(){
+    public String msg() {
         return "this is product'msg";
     }
 }
